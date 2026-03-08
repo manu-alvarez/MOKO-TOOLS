@@ -1,0 +1,21 @@
+{
+  "name": "Moko Tooling & Utils",
+  "short_name": "Moko Tools",
+  "description": "Colección de 189 herramientas web y atajos .new organizados en 14 categorías",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity", "tools"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

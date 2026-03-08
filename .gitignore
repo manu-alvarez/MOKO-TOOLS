@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Documentos pesados y binarios no necesarios
+*.pdf
+*.zip
+Uploads/
+
+# Entorno local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Builds
+dist
+dist-ssr
+*.local
+moko_tooling_utils/nextjs_space/.next/
+moko_tooling_utils/nextjs_space/out/
+
+# Sistema Operativo
+.DS_Store
+*.pem
+
+# Vercel
+.vercel

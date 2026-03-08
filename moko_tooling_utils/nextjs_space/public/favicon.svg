@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="#0a0a0a"/>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M60 70 L60 186 L85 186 L85 110 L128 170 L171 110 L171 186 L196 186 L196 70 L166 70 L128 130 L90 70 Z" fill="#00ffff" filter="url(#glow)"/>
+  <path d="M60 70 L60 186 L85 186 L85 110 L128 170 L171 110 L171 186 L196 186 L196 70 L166 70 L128 130 L90 70 Z" fill="none" stroke="#000000" stroke-width="6" stroke-linejoin="miter"/>
+</svg>

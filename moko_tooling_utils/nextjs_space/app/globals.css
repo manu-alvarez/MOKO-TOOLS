@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;:root {
+    /* Liquid Glass Palette */
+    --bg-dark: #050505;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-bright: rgba(255, 255, 255, 0.2);
+
+    --accent-cyan: #00f2ff;
+    --accent-magenta: #ff00e5;
+    --accent-yellow: #ffd000;
+
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #606060;
+
+    --radius-glass: 24px;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-[var(--bg-dark)] text-[var(--text-primary)] font-sans antialiased;
+        overflow-x: hidden;
+        background-attachment: fixed;
+    }
+
+    /* Fondo Dinámico Liquid */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(255, 0, 229, 0.05) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(255, 208, 0, 0.02) 0%, transparent 50%);
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+@layer utilities {
+    /* Liquid Glass Utilities */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-glass);
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .glass-card:hover {
+        background: var(--glass-bg-hover);
+        border-color: var(--glass-border-bright);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .glass-header {
+        background: rgba(5, 5, 5, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .glass-button {
+        @apply flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(8px);
+    }
+
+    .glass-button:hover {
+        background: var(--glass-border-bright);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.02);
+    }
+
+    .glass-button-active {
+        background: white !important;
+        color: black !important;
+        border-color: white !important;
+    }
+
+    /* Eliminando rastro de neubrutalismo */
+    .neubrutalism-border,
+    .neubrutalism-shadow,
+    .neubrutalism-shadow-sm {
+        border: none;
+        box-shadow: none;
+    }
+
+    .neon-text-cyan {
+        color: var(--accent-cyan);
+        text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    }
+
+    /* Bento Grid - Smoother spacing */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .transition-smooth {
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Scrollbar - Minimalista */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Animaciones */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
