@@ -19,7 +19,7 @@ Una colección curada y optimizada con una interfaz premium "Liquid Glass" basad
 
 **MOKO-TOOLS** nace de la necesidad de tener acceso ultrarrápido a cientos de herramientas dispersas a través de la web, incluyendo URLs directas de tipo `.new` para crear documentos al instante y plataformas críticas de IA. 
 
-Toda la recopilación, validación y categorización de este inmenso directorio ha sido **curada a mano e ideada exclusivamente por Manu Alvarez**. El objetivo es presentar esta colección en una UI inspirada en Apple Vision OS y diseño "Bento Grid", donde la belleza visual no compromete la rapidez de uso. 
+Toda la recopilación, validación y categorización de este inmenso directorio ha sido **curada a mano e ideada exclusivamente para esta plataforma**. El objetivo es presentar esta colección en una UI inspirada en Apple Vision OS y diseño "Bento Grid", donde la belleza visual no compromete la rapidez de uso. 
 
 ### ✨ Características Principales
 
@@ -82,7 +82,7 @@ Para copiar, modificar y publicar este proyecto tú mismo:
 
 ## 👨‍💻 Autoría y Créditos
 
-Este repositorio, incluyendo la extensa labor de recolección de los cientos de nodos, la categorización arquitectónica de `tools.json` y la dirección artística / requerimientos de la UI han sido **creados y organizados íntegramente por Manu Alvarez (Alvarez Consult)**.
+Este repositorio, incluyendo la extensa labor de recolección de los cientos de nodos, la categorización arquitectónica de `tools.json` y la dirección artística / requerimientos de la UI han sido **creados y organizados íntegramente de manera independiente**.
 
 Desarrollado como iniciativa Open Source para agilizar el trabajo de desarrolladores, directores de proyecto y nómadas digitales a nivel global. ¡Úsalo y compártelo a tu gusto!
 

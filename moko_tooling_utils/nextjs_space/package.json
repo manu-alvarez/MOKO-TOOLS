@@ -1,7 +1,7 @@
 {
   "name": "moko-tools",
   "version": "1.0.0",
-  "author": "Manu Alvarez (Alvarez Consult)",
+  "author": "MOKO",
   "description": "Buscador visionario premium de herramientas web y de Inteligencia Artificial",
   "private": true,
   "scripts": {
