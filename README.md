@@ -92,3 +92,14 @@ Desarrollado como iniciativa Open Source para agilizar el trabajo de desarrollad
 ---
 
 > *"Las herramientas adecuadas no solo se usan; se disfrutan."*
+
+## Convertir una lista de herramientas a JSON
+
+Desde la raíz, ejecuta `python3 parse_tools.py lista.txt -o catalogo.json`. El archivo de entrada usa UTF-8 y agrupa los dominios bajo categorías numeradas.
+
+```text
+1) Documentos
+docs.new — Crear un documento
+```
+
+La salida contiene las categorías y sus herramientas. Si omites `-o`, el script escribe `moko_tooling_data.json` en el directorio actual.

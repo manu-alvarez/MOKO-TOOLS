@@ -1,9 +1,8 @@
+import argparse
+from pathlib import Path
+
 import json
 import re
-
-# Leer el archivo
-with open('/home/ubuntu/Uploads/user_message_2026-03-07_17-04-08.txt', 'r', encoding='utf-8') as f:
-    content = f.read()
 
 # Definir emojis para cada categoría (usando coincidencias parciales)
 def get_category_icon(category_name):
@@ -87,6 +86,17 @@ def parse_tool_line(line):
     
     return tool
 
+parser = argparse.ArgumentParser(description="Convertir una lista de herramientas en un catálogo JSON.")
+parser.add_argument("input", type=Path, help="Lista UTF-8 con secciones numeradas")
+parser.add_argument("-o", "--output", type=Path, default=Path("moko_tooling_data.json"))
+args = parser.parse_args()
+if args.input.resolve() == args.output.resolve():
+    parser.error("La entrada y la salida deben ser archivos distintos.")
+try:
+    content = args.input.read_text(encoding="utf-8")
+except (OSError, UnicodeError) as error:
+    parser.error(str(error))
+
 # Parsear por secciones
 lines = content.split('\n')
 categories = []
@@ -136,7 +146,9 @@ output = {
 }
 
 # Guardar JSON
-with open('/home/ubuntu/moko_tooling_data.json', 'w', encoding='utf-8') as f:
+if not categories:
+    parser.error("El archivo debe contener al menos una categoría numerada con una herramienta.")
+with args.output.open("w", encoding="utf-8") as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
 
 print(f"✅ JSON creado exitosamente!")
