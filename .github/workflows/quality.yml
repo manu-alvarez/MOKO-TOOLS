@@ -1,0 +1,33 @@
+name: MOKO Tools Next.js acceptance
+
+on:
+  push:
+    branches: [ci/verify-moko-20261123]
+    paths:
+      - .github/workflows/quality.yml
+      - moko_tooling_utils/nextjs_space/package.json
+      - moko_tooling_utils/nextjs_space/next.config.js
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-lock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: moko_tooling_utils/nextjs_space
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ci/verify-moko-20261123
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reinstall from lock
+        run: npm ci
+      - name: Compile Next.js production
+        run: npm run build
