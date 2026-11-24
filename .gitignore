@@ -28,6 +28,7 @@ dist-ssr
 *.local
 moko_tooling_utils/nextjs_space/.next/
 moko_tooling_utils/nextjs_space/out/
+*.tsbuildinfo
 
 # Sistema Operativo
 .DS_Store
