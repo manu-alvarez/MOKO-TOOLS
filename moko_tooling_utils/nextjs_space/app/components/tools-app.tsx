@@ -16,6 +16,7 @@ export default function ToolsApp({ initialData }: ToolsAppProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [favorites, setFavorites] = useState<string[]>([])
+  const [favoritesLoaded, setFavoritesLoaded] = useState(false)
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [activeView, setActiveView] = useState<'home' | 'category' | 'search'>('home')
@@ -27,19 +28,20 @@ export default function ToolsApp({ initialData }: ToolsAppProps) {
     if (savedFavorites) {
       try {
         const parsed = JSON.parse(savedFavorites ?? '[]')
-        setFavorites(parsed ?? [])
+        setFavorites(Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : [])
       } catch (error) {
         console.error('Error loading favorites:', error)
       }
     }
+    setFavoritesLoaded(true)
   }, [])
   
   // Guardar favoritos en localStorage
   useEffect(() => {
-    if (favorites?.length >= 0) {
-      localStorage?.setItem?.('moko-favorites', JSON.stringify(favorites ?? []))
+    if (favoritesLoaded) {
+      localStorage.setItem('moko-favorites', JSON.stringify(favorites))
     }
-  }, [favorites])
+  }, [favorites, favoritesLoaded])
   
   // Toggle favorito
   const toggleFavorite = (toolId: string) => {
