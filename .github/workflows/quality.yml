@@ -5,11 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/quality.yml
-      - moko_tooling_utils/nextjs_space/package.json
-      - moko_tooling_utils/nextjs_space/next.config.js
-      - moko_tooling_utils/nextjs_space/package-lock.json
-      - moko_tooling_utils/nextjs_space/app/**
-      - moko_tooling_utils/nextjs_space/lib/**
+      - 'moko_tooling_utils/nextjs_space/**'
   pull_request:
     branches: [main]
 
