@@ -24,9 +24,9 @@ Toda la recopilación, validación y categorización de este inmenso directorio 
 ### ✨ Características Principales
 
 *   **Menú Bento Inmersivo**: Navegación rápida y categorizada visualmente mediante tarjetas interactivas gigantes. No más listas infinitas y desordenadas.
-*   **Búsqueda Semántica Inteligente**: Un potente motor de búsqueda en el cliente ignora tildes, acentos y capitalización para encontrar atajos, descripciones y herramientas instantáneamente.
+*   **Búsqueda textual normalizada**: Filtrado local sin tildes ni distinción de mayúsculas/minúsculas por nombre, descripción, atajo y categoría. No utiliza embeddings ni un motor vectorial.
 *   **Diseño "Liquid Glass" (Glassmorphism)**: Interfaz translúcida premium, fondos modulares animados, desenfoques por hardware (blurs) y animaciones fluidas impulsadas por Framer Motion.
-*   **Sistema de Favoritos Peristente**: Guarda tus herramientas de uso diario en tu navegador (LocalStorage) y accede a ellas con un solo click.
+*   **Sistema de Favoritos Persistente**: Guarda tus herramientas de uso diario en tu navegador (LocalStorage) y accede a ellas con un solo click.
 *   **Optimizaciones Modernas**: Renderizado SSR rápido vía Next.js 14 y estilado atómico sin CSS inútil.
 
 ---
@@ -55,13 +55,13 @@ Para copiar, modificar y publicar este proyecto tú mismo:
 
 1. **Clona el repositorio**
    ```bash
-   git clone https://github.com/tu-usuario/MOKO-TOOLS.git
+   git clone https://github.com/manu-alvarez/MOKO-TOOLS.git
    cd MOKO-TOOLS/moko_tooling_utils/nextjs_space
    ```
 
-2. **Instala las dependencias** (Se requiere Node.js 18+)
+2. **Instala las dependencias** (Recomendado Node.js 22 LTS)
    ```bash
-   npm install
+   npm ci
    ```
 
 3. **Ejecuta el servidor de desarrollo**
@@ -103,3 +103,10 @@ docs.new — Crear un documento
 ```
 
 La salida contiene las categorías y sus herramientas. Si omites `-o`, el script escribe `moko_tooling_data.json` en el directorio actual.
+
+## Datos y límites de publicación
+
+- Catálogo local: `moko_tooling_utils/nextjs_space/public/data/tools.json`; se actualiza en el repositorio y no verifica dinámicamente que las páginas externas sigan disponibles.
+- Favoritos locales: `localStorage` con validación de datos guardados y carga previa al guardado; no existe sincronización entre dispositivos.
+- El frontend usa Next.js 14 y puede ejecutarse sin configurar una base de datos externa para consultar el JSON estático; la presencia de dependencias Prisma no significa que se requiera una base de datos para la página de catálogo.
+- La compilación mediante CI verifica la integridad del código, no la disponibilidad de todos los enlaces a terceros.
