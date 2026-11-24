@@ -2,11 +2,14 @@ name: MOKO Tools Next.js acceptance
 
 on:
   push:
-    branches: [ci/verify-moko-20261123]
+    branches: [main]
     paths:
       - .github/workflows/quality.yml
       - moko_tooling_utils/nextjs_space/package.json
       - moko_tooling_utils/nextjs_space/next.config.js
+      - moko_tooling_utils/nextjs_space/package-lock.json
+      - moko_tooling_utils/nextjs_space/app/**
+      - moko_tooling_utils/nextjs_space/lib/**
   pull_request:
     branches: [main]
 
@@ -22,8 +25,6 @@ jobs:
         working-directory: moko_tooling_utils/nextjs_space
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ci/verify-moko-20261123
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
